@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Chats</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header class="fixed-top">
+        <!-- Contenido del encabezado -->
+    </header>
+    <section class="section1">
+        <div class="section1">
+            <div class="sidebar">
+                <h2>Historial de Chats</h2>
+                <div class="chat-item">
+                    <div class="avatar"></div>
+                    <div class="chat-info">
+                        <div class="chat-name">Contacto 1</div>
+                        <div class="last-message">Hola, ¿cómo estás?</div>
+                    </div>
+                    <div class="timestamp">10:30 AM</div>
+                </div>
+                <div class="chat-item">
+                    <div class="avatar"></div>
+                    <div class="chat-info">
+                        <div class="chat-name">Contacto 2</div>
+                        <div class="last-message">Nos vemos mañana</div>
+                    </div>
+                    <div class="timestamp">9:15 AM</div>
+                </div>
+            </div>
+            <!--aca comienza conteiner del chat-->
+            <div class="chat-container">
+                <button class="toggle-sidebar">☰</button>
+                <div class="messages">
+                    <!-- Mensajes del chat -->
+                </div>
+                <div class="message-input-container">
+                    <input type="text" class="message-input" placeholder="Escribe un mensaje...">
+                    <button class="send-button">Enviar</button>
+                </div>
+            </div>
+    </section>
+    <section class="section2">
+        <nav class="flex h-full w-full flex-col px-3 pb-3.5 juice:pb-0" aria-label="Historial del chat">
+            <div class="flex justify-between flex h-14 items-center"><span class="" data-state="closed"><button
+                        class="h-10 rounded-lg px-2 text-token-text-secondary focus-visible:outline-0 hover:bg-token-sidebar-surface-secondary focus-visible:bg-token-sidebar-surface-secondary"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                            class="icon-xl-heavy">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M8.857 3h6.286c1.084 0 1.958 0 2.666.058.729.06 1.369.185 1.961.487a5 5 0 0 1 2.185 2.185c.302.592.428 1.233.487 1.961.058.708.058 1.582.058 2.666v3.286c0 1.084 0 1.958-.058 2.666-.06.729-.185 1.369-.487 1.961a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C17.1 21 16.227 21 15.143 21H8.857c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.232-.487-1.961C1.5 15.6 1.5 14.727 1.5 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.728.185-1.369.487-1.96A5 5 0 0 1 4.23 3.544c.592-.302 1.233-.428 1.961-.487C6.9 3 7.773 3 8.857 3M6.354 5.051c-.605.05-.953.142-1.216.276a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216-.05.617-.051 1.41-.051 2.546v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h.6V5h-.6c-1.137 0-1.929 0-2.546.051M11.5 5v14h3.6c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.134-.263.226-.611.276-1.216.05-.617.051-1.41.051-2.546v-3.2c0-1.137 0-1.929-.051-2.546-.05-.605-.142-.953-.276-1.216a3 3 0 0 0-1.311-1.311c-.263-.134-.611-.226-1.216-.276C17.029 5.001 16.236 5 15.1 5zM5 8.5a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1M5 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1"
+                                clip-rule="evenodd"></path>
+                        </svg></button></span><span class="" data-state="closed"><button
+                        class="h-10 rounded-lg px-2 text-token-text-secondary focus-visible:outline-0 hover:bg-token-sidebar-surface-secondary focus-visible:bg-token-sidebar-surface-secondary"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24" class="icon-xl-heavy">
+                            <path
+                                d="M15.673 3.913a3.121 3.121 0 1 1 4.414 4.414l-5.937 5.937a5 5 0 0 1-2.828 1.415l-2.18.31a1 1 0 0 1-1.132-1.13l.311-2.18A5 5 0 0 1 9.736 9.85zm3 1.414a1.12 1.12 0 0 0-1.586 0l-5.937 5.937a3 3 0 0 0-.849 1.697l-.123.86.86-.122a3 3 0 0 0 1.698-.849l5.937-5.937a1.12 1.12 0 0 0 0-1.586M11 4A1 1 0 0 1 10 5c-.998 0-1.702.008-2.253.06-.54.052-.862.141-1.109.267a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216C5.001 8.471 5 9.264 5 10.4v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h3.2c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.126-.247.215-.569.266-1.108.053-.552.06-1.256.06-2.255a1 1 0 1 1 2 .002c0 .978-.006 1.78-.069 2.442-.064.673-.192 1.27-.475 1.827a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C15.6 21 14.727 21 13.643 21h-3.286c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.233-.487-1.961C3 15.6 3 14.727 3 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.729.185-1.369.487-1.961A5 5 0 0 1 5.73 3.545c.556-.284 1.154-.411 1.827-.475C8.22 3.007 9.021 3 10 3A1 1 0 0 1 11 4">
+                            </path>
+                        </svg></button></span></div>
+            <div class="flex-col flex-1 transition-opacity duration-500 -mr-2 pr-2 overflow-y-auto">
+                <div class="flex flex-col gap-2 pb-2 text-token-text-primary text-sm juice:mt-5">
+                    <div>
+                        <div class="relative mt-5 empty:mt-0 empty:hidden juice:first:mt-0 juice:last:mb-5"
+                            style="height: auto; opacity: 1;">
+                            <div class="juice:sticky juice:top-0 juice:z-20 juice:bg-token-sidebar-surface-primary">
+                                <span class="flex h-9 items-center">
+                                    <h3
+                                        class="pb-2 pt-3 px-2 text-xs font-semibold text-ellipsis overflow-hidden break-all text-token-text-secondary">
+                                        Ayer</h3>
+                                </span></div>
+                            <ol>
+                                <li class="relative z-[15]" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/850b76d4-be2a-41ae-9cc2-618bf84f1d45"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                WebChatGPT<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rcg:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/8af3e245-2d02-4834-bfa7-d9a189603040"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Calculadora de PHP y HTML<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rck:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 bg-token-sidebar-surface-secondary">
+                                        <a href="/c/e1eb5879-d8c3-4c96-8108-5157d95b0343"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Flexbox Guía Básica Ayuda<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-secondary w-20 from-60% juice:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rco:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/b965199d-b0b5-42f9-8a97-64b9dbfaf99a"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Gobierno de La Rioja<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rcs:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="relative mt-5 empty:mt-0 empty:hidden juice:first:mt-0 juice:last:mb-5"
+                            style="height: auto; opacity: 1;">
+                            <div class="juice:sticky juice:top-0 juice:z-20 juice:bg-token-sidebar-surface-primary">
+                                <span class="flex h-9 items-center">
+                                    <h3
+                                        class="pb-2 pt-3 px-2 text-xs font-semibold text-ellipsis overflow-hidden break-all text-token-text-secondary">
+                                        7 días anteriores</h3>
+                                </span></div>
+                            <ol>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/a2948feb-385c-4126-9e3e-10589c22a302"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Marcha atrás Chevrolet auto.<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rd2:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/0b809178-a468-460e-a19b-af78aefe4852"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Traducción de ayer<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rd6:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/35bf9ac6-07fd-4b75-9b89-9b772a69d495"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Calculadoras en Diferentes Lenguajes<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rda:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/ea902911-b904-4401-9ade-94c63459ef16"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                buenas noches<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rde:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/f14ea722-4755-4f44-8b64-3ae8667c9913"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Calculadora con PHP<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rdi:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/37b533e8-7d28-45f9-83f6-118124a0565e"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Apache no arranca<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rdm:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/b7c7d3f8-7672-4a98-a742-ab5148c1710e"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Examen de inglés. Ayuda.<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rdq:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/f7ea119b-18d9-4dd6-a738-8fd76d8aae70"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Crear Modelo Perceptrón Simple<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rdu:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/70e99b33-2c90-4883-8b48-cb50326801d2"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Ayuda actividad biología.<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:re2:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/1426b18e-6925-43ed-9304-156cb10bc2fc"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Pasos para resolver.<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:re6:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/11cac8d1-1733-4b93-9537-de547cbcc1cf"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Desbloqueo del patrón.<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rea:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/3fbdc944-3508-4a0a-bd5c-eace6984237e"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Preparación para el parcial<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:ree:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/c7386296-3fe7-47b3-97f9-bc8ec1800b33"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Atraso Entrega Trabajo Correo<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rei:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/a5792df1-ccc0-4207-8046-f65b7e1e75f4"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">Edad
+                                                DNI 47 inconcreta<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rem:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/67ffb794-99dc-4aeb-b8aa-718da5d2dfbd"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Terminal Navigation Guide<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:req:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/788c6205-9ce6-4be8-917e-2544dd8b7311"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Monarquía Británica Residencial<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:reu:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="relative mt-5 empty:mt-0 empty:hidden juice:first:mt-0 juice:last:mb-5"
+                            style="height: auto; opacity: 1;">
+                            <div class="juice:sticky juice:top-0 juice:z-20 juice:bg-token-sidebar-surface-primary">
+                                <span class="flex h-9 items-center">
+                                    <h3
+                                        class="pb-2 pt-3 px-2 text-xs font-semibold text-ellipsis overflow-hidden break-all text-token-text-secondary">
+                                        30 días anteriores</h3>
+                                </span></div>
+                            <ol>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/35775518-1494-4dc2-a289-1f849901d343"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Encuentra tu perro Minecraft.<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rf4:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/849c6cc8-a8ea-4a5f-b840-440ff3eee6e5"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Instalación exitosa de OpenAI<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rf8:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/20564327-532a-474d-93ca-5e812f96793d"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Croni Mariana Serie?<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rfc:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/2af44396-4acc-4585-89d3-039487a0a54b"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Propiedad de la Multiplicación<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rfg:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/d780d435-dc85-4d4a-868b-ce6b15fb9f5a"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">App
+                                                React no funciona<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rfk:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/24926a1b-8fcf-41f9-b81b-251af38db575"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Crear Aplicación React con Create React App<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rfo:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/cecfb12c-6624-43e3-848e-97f4a5694f57"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Batata vs. membrillo<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rfs:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                                <li class="relative" style="opacity: 1; height: auto;">
+                                    <div
+                                        class="group relative rounded-lg active:opacity-90 hover:bg-token-sidebar-surface-secondary">
+                                        <a href="/c/9b4bbb11-314a-49a2-9c73-ed1682369750"
+                                            class="flex items-center gap-2 p-2">
+                                            <div class="relative grow overflow-hidden whitespace-nowrap" dir="auto">
+                                                Elemento en línea predeterminado<div
+                                                    class="absolute bottom-0 top-0 to-transparent ltr:right-0 ltr:bg-gradient-to-l rtl:left-0 rtl:bg-gradient-to-r from-token-sidebar-surface-primary from-token-sidebar-surface-primary group-hover:from-token-sidebar-surface-secondary  w-8 from-0% group-hover:w-20 group-hover:from-60% juice:group-hover:w-10">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div
+                                            class="absolute bottom-0 top-0 items-center gap-1.5 pr-2 ltr:right-0 rtl:left-0 hidden group-hover:flex">
+                                            <span class="" data-state="closed"><button
+                                                    class="flex items-center justify-center text-token-text-primary transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary juice:text-token-text-secondary juice:hover:text-token-text-primary"
+                                                    type="button" id="radix-:rg0:" aria-haspopup="menu"
+                                                    aria-expanded="false" data-state="closed"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        fill="none" viewBox="0 0 24 24" class="icon-md">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="M3 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0m7 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                                                            clip-rule="evenodd"></path>
+                                                    </svg></button></span></div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col pt-2 empty:hidden juice:py-2 dark:border-white/20"><a
+                    class="group flex gap-2 p-2.5 text-sm cursor-pointer focus:ring-0 radix-disabled:pointer-events-none radix-disabled:opacity-50 group items-center hover:bg-token-sidebar-surface-secondary m-0 rounded-lg px-2"><span
+                        class="flex w-full flex-row flex-wrap-reverse justify-between">
+                        <div class="flex items-center gap-2"><span
+                                class="flex h-7 w-7 items-center justify-center rounded-full border border-token-border-light"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                    viewBox="0 0 24 24" class="icon-sm shrink-0">
+                                    <path fill="currentColor"
+                                        d="M6.394 4.444c.188-.592 1.024-.592 1.212 0C8.4 8.9 9.1 9.6 13.556 10.394c.592.188.592 1.024 0 1.212C9.1 12.4 8.4 13.1 7.606 17.556c-.188.592-1.024.592-1.212 0C5.6 13.1 4.9 12.4.444 11.606c-.592-.188-.592-1.024 0-1.212C4.9 9.6 5.6 8.9 6.394 4.444m8.716 9.841a.41.41 0 0 1 .78 0c.51 2.865.96 3.315 3.825 3.826.38.12.38.658 0 .778-2.865.511-3.315.961-3.826 3.826a.408.408 0 0 1-.778 0c-.511-2.865-.961-3.315-3.826-3.826a.408.408 0 0 1 0-.778c2.865-.511 3.315-.961 3.826-3.826Zm2.457-12.968a.454.454 0 0 1 .866 0C19 4.5 19.5 5 22.683 5.567a.454.454 0 0 1 0 .866C19.5 7 19 7.5 18.433 10.683a.454.454 0 0 1-.866 0C17 7.5 16.5 7 13.317 6.433a.454.454 0 0 1 0-.866C16.5 5 17 4.5 17.567 1.317">
+                                    </path>
+                                </svg></span>
+                            <div class="flex flex-col"><span>Cambiar a un plan superior</span><span
+                                    class="line-clamp-1 text-xs text-token-text-tertiary">Consigue GPT-4, DALL·E y mucho
+                                    más</span></div>
+                        </div>
+                    </span></a></div>
+        </nav>
+    </section>
+
+    <!-- Más elementos de chat -->
+
+    </div>
+    <script src="yacuray.js"></script>
+</body>
+
+</html>
