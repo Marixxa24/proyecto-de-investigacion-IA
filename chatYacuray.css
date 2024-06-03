@@ -16,13 +16,20 @@ header {
     width: 100%;
     text-align: center !important;
 }
+.foto-nav .img{
+    margin-bottom: 50px;
+}
 
 .section1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
-    height: 700px;
+    height: 600px;
     width: 100%;
     flex-wrap: nowrap;
+    background-image: url(./logos/logos3.png);
+    background-size: 400px 600px;
+    background-position-x: 10px;
+    background-repeat: no-repeat;
 }
 
 .app {
@@ -40,7 +47,7 @@ header {
     transform: translateX(-20);
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 0px;
     overflow-y: auto;
 }
 
