@@ -10,12 +10,13 @@ header {
     height: 120px;
     display: flex;
     flex-wrap: wrap;
-    background-color: #f70a11;
+    background-color: #0074FF; /* Azul brillante para el encabezado */
+    color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
 }
 
-.fixed-top {
-    position: unset !important;
-    z-index: 1030;
+header .navbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -32,31 +33,26 @@ header .navbar-brand img {
 }
 
 .section1 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     height: calc(100vh - 120px);
     width: 100%;
     flex-wrap: nowrap;
-    position: relative;
-    /* background-image: url(./logos/logos3.png);
+    background-image: url(./logos/logos3.png);
     background-size: 400px 600px;
-    background-position-x: 10px;
     background-repeat: no-repeat;
 }
-.img-logos4{
-    width: 250px;
-    margin: 5px 0px;
-    padding:2px 5px;
-}
+
 .app {
     display: flex;
     width: 100%;
     overflow: hidden;
     flex-wrap: nowrap;
 }
+
 .sidebar {
     width: 250px;
-    background-color: #f75757;
+    background-color: #FF6C00; /* Naranja para la barra lateral */
+    color: #FFFFFF;
     border-right: 1px solid #ccc;
     transition: transform 0.3s ease, width 0.3s ease; /* Añadido width a la transición */
     transform: translateX(-100%); /* Modificado para que la barra lateral se oculte completamente */
@@ -64,6 +60,12 @@ header .navbar-brand img {
     flex-direction: column;
     /* padding: 20px; */
     overflow-y: auto;
+}
+
+.sidebar.hidden {
+    width: 0;
+    overflow: hidden;
+    padding: 0;
 }
 
 .sidebar h2 {
@@ -136,13 +138,13 @@ header .navbar-brand img {
 }
 
 .messages {
-    display: flex;
     flex-grow: 1;
     border: 1px solid #ccc;
     padding: 10px;
     overflow-y: scroll;
     margin-bottom: 10px;
-    background-color: #b5cc31;
+    background-color: #F5F5F5; /* Fondo claro para los mensajes */
+    color: #333;
 }
 
 .message-input-container {
