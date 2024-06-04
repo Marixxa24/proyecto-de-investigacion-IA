@@ -1,3 +1,8 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+.--bs-btn-close-bg {
+    background-color: transparent;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -35,10 +40,10 @@ nav a:hover {
 
 .lado{
     background-color: #F70A11;
-    width: 80%; /* Ancho del contenido principal */
+    width: 80%; /*Ancho del contenido principal*/
     padding: 20px;
-    width: 10%; /* Ancho de la columna de la izquierda */
-    min-height: 100vh; /* Altura mínima de la columna */
+    width: 10%; /*Ancho de la columna de la izquierda*/
+    min-height: 100vh; /*Altura mínima de la columna*/
 }
 ul {
     list-style-type: none;
