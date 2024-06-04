@@ -1,65 +1,47 @@
 body {
     margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
 header {
     width: 100%;
-    height:100px;
-    /* display: flex;
-    flex-wrap: wrap; */
-    background-color: #f70a11;
-    justify-content: center start;
-    align-items: center;
-}
-.container{
+    height: 120px;
     display: flex;
-    justify-content: center start;
-    width: 100%;
-    background-color:#f70a11;
-    height: 100px;
+    flex-wrap: wrap;
+    background-color: #f70a11;
 }
+
 .fixed-top {
     position: unset !important;
     z-index: 1030;
     width: 100%;
-    text-align: center !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.foto-nav .img{
-    margin-bottom: 50px;
+
+header .navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+header .navbar-brand img {
+    border-radius: 50%;
 }
 
 .section1 {
-    /* padding-top:42px ; */ /* lo saque porque ya no era necesario*/
-    font-family:Verdana, Geneva, Tahoma, sans-serif; /*cambia yeye*/
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
-    height: 600px;
+    height: calc(100vh - 120px);
     width: 100%;
     flex-wrap: nowrap;
     position: relative;
     /* background-image: url(./logos/logos3.png);
     background-size: 400px 600px;
-    background-repeat: no-repeat; */
-    /*los background los saque porque era mejro invididualizarlos para nav en enlaces*/
-}
-.img-column a{
-    display: flex;
-    flex-direction: column;
-    align-items:start;
-    padding: 1rem;
-    width: 450px;
-    height: 600px;
-    position: absolute;
-    z-index:1;
-}
-.img-logos{
-    display: flex;
-    width: 170px;;
-    height:auto;
-    flex-direction: column;
-    align-items: start;
-    /* border:2px solid black; */
-    margin-left:15% ;
-    padding: 2px;
+    background-position-x: 10px;
+    background-repeat: no-repeat;
 }
 .img-logos4{
     width: 250px;
@@ -73,37 +55,34 @@ header {
     flex-wrap: nowrap;
 }
 .sidebar {
-    width: 260px;
+    width: 250px;
     background-color: #f75757;
     border-right: 1px solid #ccc;
-    transition: transform 0.3s ease;
-    transform: translateX(-20);
+    transition: transform 0.3s ease, width 0.3s ease; /* Añadido width a la transición */
+    transform: translateX(-100%); /* Modificado para que la barra lateral se oculte completamente */
     display: flex;
     flex-direction: column;
-    padding: 0px;
+    /* padding: 20px; */
     overflow-y: auto;
-    position: absolute;
-    z-index: 2;
-    height: 600px;
 }
-.sidebar.sticky-scroll {
-    position: absolute; /* Cambia a posición absoluta */
-    top: 120px; /* Se fija en la parte superior, debajo de la barra de navegación */
-}
+
 .sidebar h2 {
     margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
 }
 
 .chat-item {
     display: flex;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .chat-item:hover {
-    background-color: #e9e9e9;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .avatar {
@@ -111,7 +90,7 @@ header {
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
-    background-color: #ccc;
+    background-color: #2D00E0; /* Azul oscuro para el avatar */
 }
 
 .chat-info {
@@ -124,23 +103,25 @@ header {
 }
 
 .last-message {
-    color: #555;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .timestamp {
     font-size: 0.8em;
-    color: #888;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .chat-container {
-    flex-grow: 1;
+    flex-grow: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    background-color: #381b75;
+    background-color: #FFFFFF;
     transition: margin-left 0.3s ease;
-    margin-left: 0;
+    /* margin-left: 0; */
+    margin-right: 0; /* Agregado margen derecho */
+    width: calc(100% - 250px); /* Ajuste para que ocupe el ancho restante */
 }
 
 .toggle-sidebar {
@@ -151,7 +132,7 @@ header {
     cursor: pointer;
     margin-bottom: 10px;
     background-color: transparent;
-    color: white;
+    color: #0074FF;
 }
 
 .messages {
@@ -162,44 +143,37 @@ header {
     overflow-y: scroll;
     margin-bottom: 10px;
     background-color: #b5cc31;
-    position:relative;
-    justify-content: center;
-    z-index:1;
-}/* para alinear ambos acorddarse de que si tengo un z-index tengo que poner la propiedad a ambos*/
-.messages-interno{
-    width: 1000px;
-    height: 600px;
-    background-color: #be1fb4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    /* margin: 0% 6% ; */
-    position: absolute;
-    z-index: 2;
 }
+
 .message-input-container {
     display: flex;
     align-items: center;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-top: 1px solid #ccc;
 }
 
 .message-input {
     flex-grow: 1;
     padding: 10px;
-    background-color: #7057a7;
+    background-color: #EEEEEE; /* Fondo claro para el input de mensajes */
     border-radius: 20px;
-    margin: 10px;
-    border: none;
+    margin-right: 10px;
+    border: 1px solid #ccc;
 }
 
 .send-button {
-    padding: 10px;
-    background-color: #7057a7;
+    padding: 10px 20px;
+    background-color: #0074FF; /* Azul brillante para el botón de enviar */
     border: none;
     border-radius: 20px;
-    margin: 10px;
     cursor: pointer;
-    color: white;
+    color: #FFFFFF;
+    transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #005BB5; /* Azul más oscuro para el hover del botón */
 }
 
 /* Media queries responsive */
