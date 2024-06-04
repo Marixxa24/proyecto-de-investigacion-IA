@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    color: #070F2B;
 }
 
 header {
@@ -7,17 +8,19 @@ header {
     height: 100px;
     /* display: flex;
     flex-wrap: wrap; */
-    background-color: #0074ff;
+    background-color:black;
     color: white;
     justify-content: center start;
     align-items: center;
+   position: fixed;
+   z-index: 100;
 }
 
 .container {
     display: flex;
     justify-content: center start;
     width: 100%;
-    background-color: #0074FF;
+    background-color:#26647b;
     height: 100px;
 }
 
@@ -38,8 +41,9 @@ header {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     /*cambia yeye*/
     display: flex;
-    height: 600px;
+    height: 700px;
     width: 100%;
+    padding-top: 105px;
     flex-wrap: nowrap;
     position: relative;
     /* background-image: url(./logos/logos3.png);
@@ -57,24 +61,26 @@ header {
     height: 600px;
     position: absolute;
     z-index: 1;
+    color: #070F2B;
 }
 
 .img-logos {
     display: flex;
     width: 170px;
-    ;
     height: auto;
     flex-direction: column;
     align-items: start;
     /* border:2px solid black; */
     margin-left: 15%;
     padding: 2px;
+    color: #070F2B;
 }
 
 .img-logos4 {
     width: 250px;
     margin: 5px 0px;
     padding: 2px 5px;
+    color: #070F2B;
 }
 
 .app {
@@ -86,8 +92,8 @@ header {
 
 .sidebar {
     width: 260px;
-    background-color: #ff6c00;
-    border-right: 1px solid #ccc;
+    background-color:#070F2B;
+    border-right: 1px solid #26647b;
     transition: transform 0.3s ease;
     transform: translateX(-20);
     display: flex;
@@ -96,7 +102,7 @@ header {
     overflow-y: auto;
     position: absolute;
     z-index: 2;
-    height: 700px;
+    height:600px;
 }
 
 .sidebar.sticky-scroll {
@@ -109,13 +115,15 @@ header {
 .sidebar h2 {
     margin-top: 25px;
     margin-left: 10px;
+    font-size: 1.5rem;
+    color: #26647b;
 }
 
 .chat-item {
     display: flex;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border: 2px solid rgba(136, 136, 136, 0.25);
     cursor: pointer;
 }
 
@@ -128,7 +136,7 @@ header {
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
-    background-color: #2D00E0;
+    background-color:#26647b;
 }
 
 .chat-info {
@@ -155,9 +163,10 @@ header {
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    background-color: #381b75;
+    background-color: #070F2B;
     transition: margin-left 0.3s ease;
     margin-left: 0;
+    height:600px;
 }
 
 .toggle-sidebar {
@@ -168,7 +177,7 @@ header {
     cursor: pointer;
     margin-bottom: 10px;
     background-color: transparent;
-    color: white;
+    color: #26647b;
 }
 
 .toggle-sidebar2 {
@@ -179,18 +188,18 @@ header {
     cursor: pointer;
     margin-bottom: 10px;
     background-color: transparent;
-    color: white;
-    margin-left: 20px;
+    color:#26647b;
+    margin-left:10px;
 }
 
 .messages {
     display: flex;
     flex-grow: 1;
-    border: 1px solid #ccc;
+    border: 1px solid #EEEEEE;
     padding: 10px;
     overflow-y: scroll;
     margin-bottom: 10px;
-    background-color: #f5f5f5;
+    background-color: #EEEEEE;
     position: relative;
     justify-content: center;
     z-index: 1;
@@ -200,7 +209,7 @@ header {
 .messages-interno {
     width: 98%;
     height: 600px;
-    background-color: #995353;
+    background-color:#c9e0ee;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,7 +235,7 @@ header {
 
 .send-button {
     padding: 10px;
-    background-color: #0074FF;
+    background-color: #26647b;
     border: none;
     border-radius: 20px;
     margin: 10px;
