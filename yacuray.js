@@ -7,6 +7,14 @@ document.querySelector('.toggle-sidebar').addEventListener('click', () => {
         sidebar.style.transform = 'translateX(0px)';
     }
 });
+document.querySelector('.toggle-sidebar2').addEventListener('click', () => {
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar.style.transform === 'translateX(0px)') {
+        sidebar.style.transform = 'translateX(-260px)';
+    } else {
+        sidebar.style.transform = 'translateX(0px)';
+    }
+});
 
 
 document.getElementById('send-button').addEventListener('click', () => {
