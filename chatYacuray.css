@@ -1,0 +1,341 @@
+body {
+    margin: 0;
+    color: #070F2B;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    /* display: flex;
+    flex-wrap: wrap; */
+    background-color:black;
+    color: white;
+    justify-content: center start;
+    align-items: center;
+   position: fixed;
+   z-index: 100;
+}
+
+.container {
+    display: flex;
+    justify-content: center start;
+    width: 100%;
+    background-color:#26647b;
+    height: 100px;
+}
+
+.fixed-top {
+    position: unset !important;
+    z-index: 1030;
+    width: 100%;
+    text-align: center !important;
+}
+
+.foto-nav .img {
+    margin-bottom: 50px;
+}
+
+.section1 {
+    /* padding-top:42px ; */
+    /* lo saque porque ya no era necesario*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*cambia yeye*/
+    display: flex;
+    height: 700px;
+    width: 100%;
+    padding-top: 105px;
+    flex-wrap: nowrap;
+    position: relative;
+    /* background-image: url(./logos/logos3.png);
+    background-size: 400px 600px;
+    background-repeat: no-repeat; */
+    /*los background los saque porque era mejro invididualizarlos para nav en enlaces*/
+}
+
+.img-column a {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 1rem;
+    width: 450px;
+    height: 600px;
+    position: absolute;
+    z-index: 1;
+    color: #070F2B;
+}
+
+.img-logos {
+    display: flex;
+    width: 170px;
+    height: auto;
+    flex-direction: column;
+    align-items: start;
+    /* border:2px solid black; */
+    margin-left: 15%;
+    padding: 2px;
+    color: #070F2B;
+}
+
+.img-logos4 {
+    width: 250px;
+    margin: 5px 0px;
+    padding: 2px 5px;
+    color: #070F2B;
+}
+
+.app {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    flex-wrap: nowrap;
+}
+
+.sidebar {
+    width: 260px;
+    background-color:#070F2B;
+    border-right: 1px solid #26647b;
+    transition: transform 0.3s ease;
+    transform: translateX(-20);
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 2;
+    height:600px;
+}
+
+.sidebar.sticky-scroll {
+    position: absolute;
+    /* Cambia a posición absoluta */
+    top: 120px;
+    /* Se fija en la parte superior, debajo de la barra de navegación */
+}
+
+.sidebar h2 {
+    margin-top: 25px;
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: #26647b;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid rgba(136, 136, 136, 0.25);
+    cursor: pointer;
+}
+
+.chat-item:hover {
+    background-color: #e9e9e9;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color:#26647b;
+}
+
+.chat-info {
+    flex-grow: 1;
+}
+
+.chat-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.last-message {
+    color: #555;
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.chat-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #070F2B;
+    transition: margin-left 0.3s ease;
+    margin-left: 0;
+    height:600px;
+}
+
+.toggle-sidebar {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: transparent;
+    color: #26647b;
+}
+
+.toggle-sidebar2 {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: transparent;
+    color:#26647b;
+    margin-left:10px;
+}
+
+.messages {
+    display: flex;
+    flex-grow: 1;
+    border: 1px solid #EEEEEE;
+    padding: 10px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    background-color: #EEEEEE;
+    position: relative;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* para alinear ambos acorddarse de que si tengo un z-index tengo que poner la propiedad a ambos*/
+.messages-interno {
+    width: 98%;
+    height: 600px;
+    background-color:#c9e0ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    /* margin: 0% 6% ; */
+    position: absolute;
+    z-index: 2;
+}
+
+.message-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.message-input {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #EEEEEE;
+    border-radius: 20px;
+    margin: 10px;
+    border: none;
+}
+
+.send-button {
+    padding: 10px;
+    background-color: #26647b;
+    border: none;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+
+/* Media queries  */
+@media only screen and (max-width: 768px) {
+    .section1 {
+        flex-direction: column;
+        height: calc(100vh - 180px);
+
+    }
+
+    .logo-column {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #0074ff;
+        color: white;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .img-logos,
+    .img-logos4 {
+        width: 80px;
+        margin: 1px;
+        height: auto;
+    }
+
+    .avatar {
+        display: flex;
+        margin-left: 30px;
+    }
+
+    .chat-container {
+        margin-left: 0;
+
+    }
+
+    .chat-container.shifted {
+        margin-left: 80%;
+    }
+
+    .messages-interno {
+        width: calc(100% - 190px);
+        
+    }
+}
+
+/*aca medianas*/
+@media only screen and (min-width: 853px) and (max-width: 953px) {
+    .section1 {
+        height: calc(115vh - 290px);
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+    }
+    .chat-container.shifted {
+        margin-left: 80%;
+    }
+    .messages-interno {
+        height: calc(120% - 180px);
+    }
+    .sidebar {
+        height: calc(115vh - 290px);
+    }
+
+    .main-content {
+        width: 70%;
+    }
+}
+
+/*las mas peques*/
+@media only screen and (max-width: 480px) {
+
+    .img-logos,
+    .img-logos4 {
+        width: 60px;
+    }
+
+    .sidebar {
+        height: calc(100vh - 190px);
+
+    }
+
+    .messages-interno {
+        width: calc(150% - 190px);
+
+    }
+}
